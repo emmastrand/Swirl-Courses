@@ -1,0 +1,87 @@
+---
+title: "BiocSwirl_courses"
+author: "EL Strand"
+date: "1/19/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Clears workspace. 
+```{r}
+rm(list=ls())
+```
+
+Loading libraries. I had trouble downloading devtools so I updated 'processx' package, installed 'usethis', and re-ran the install devtools function. Seems to have fixed this. 
+```{r}
+install.packages("devtools")
+library(devtools)
+
+devtools::install_github("biocswirl-dev-team/BiocSwirl") # selected '1' to update all; 'Yes' to install that need compilation; 'Yes' to install from C/C++/Fortran: 'brio'. This install took awhile. 
+library(BiocSwirl)
+```
+
+```{r, eval = FALSE}
+# list all available BiocSwirl courses
+list_courses()
+# install selected course. 
+# copy name from output of list_courses()
+load_course(course ='RNAseq')
+```
+
+To start the course environment, excute the command below. No parameters are necessary. The command will start an interactive environment that will allow you to navigate to your course.
+```{r, eval = FALSE}
+start_course()
+```
+
+# RNASeq
+
+## Installing packages 
+Fully update R and RStudio prior to starting. 
+
+```{r}
+install.packages("pheatmap")
+library(pheatmap)
+
+install.packages("latticeExtra")
+library(latticeExtra)
+
+install.packages("acepack")
+library(acepack)
+
+install.packages("Hmisc")
+library(Hmisc)
+
+install.packages("BiocManager")
+
+BiocManager::install("DESeq2") #select 'a' for all
+library(DESeq2)
+```
+Opening the DESeq2 documentation and cite the authors. 
+```{r}
+browseVignettes("DESeq2")
+
+citation("DESeq2")
+```
+
+## Fastq download 
+What additional information does a fastq file contain? "quality information"
+
+Look up the GEO accession GSE147507 on the NCBI website. What is the title of that accession?
+> https://www.ncbi.nlm.nih.gov/geo/
+> Input 'GSE147507' in search bar.
+> https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE147507
+> Title = Transcriptional response to SARS-CoV-2 infection
+
+Which data files can you find directly on the page of the GSE147507 accession? "Raw count data"
+
+How many samples for the human cell line NHBE are there in this dataset? Got stuck none of these answers work!! 
+
+
+```{r}
+
+```
+
+
